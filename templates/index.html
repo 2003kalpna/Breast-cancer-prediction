@@ -1,0 +1,323 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+</head>
+<body>
+    <h1>Breast Cancer Prediction</h1>
+    
+    <form action="/predict" method="POST">
+         Add input fields for all 32 features (Ensure names match your model features) 
+        
+        <label for="mean_radius">Mean Radius:</label>
+        <input type="text" id="mean_radius" name="mean_radius" required><br><br>
+
+        <label for="mean_texture">Mean Texture:</label>
+        <input type="text" id="mean_texture" name="mean_texture" required><br><br>
+
+        <label for="mean_perimeter">Mean Perimeter:</label>
+        <input type="text" id="mean_perimeter" name="mean_perimeter" required><br><br>
+
+        <label for="mean_area">Mean Area:</label>
+        <input type="text" id="mean_area" name="mean_area" required><br><br>
+
+        <label for="mean_smoothness">Mean Smoothness:</label>
+        <input type="text" id="mean_smoothness" name="mean_smoothness" required><br><br>
+
+        <label for="mean_compactness">Mean Compactness:</label>
+        <input type="text" id="mean_compactness" name="mean_compactness" required><br><br>
+
+        <label for="mean_concavity">Mean Concavity:</label>
+        <input type="text" id="mean_concavity" name="mean_concavity" required><br><br>
+
+        <label for="mean_concave_points">Mean Concave Points:</label>
+        <input type="text" id="mean_concave_points" name="mean_concave_points" required><br><br>
+
+        <label for="mean_symmetry">Mean Symmetry:</label>
+        <input type="text" id="mean_symmetry" name="mean_symmetry" required><br><br>
+
+        <label for="mean_fractal_dimension">Mean Fractal Dimension:</label>
+        <input type="text" id="mean_fractal_dimension" name="mean_fractal_dimension" required><br><br>
+
+        <label for="radius_se">Radius SE:</label>
+        <input type="text" id="radius_se" name="radius_se" required><br><br>
+
+        <label for="texture_se">Texture SE:</label>
+        <input type="text" id="texture_se" name="texture_se" required><br><br>
+
+        <label for="perimeter_se">Perimeter SE:</label>
+        <input type="text" id="perimeter_se" name="perimeter_se" required><br><br>
+
+        <label for="area_se">Area SE:</label>
+        <input type="text" id="area_se" name="area_se" required><br><br>
+
+        <label for="smoothness_se">Smoothness SE:</label>
+        <input type="text" id="smoothness_se" name="smoothness_se" required><br><br>
+
+        <label for="compactness_se">Compactness SE:</label>
+        <input type="text" id="compactness_se" name="compactness_se" required><br><br>
+
+        <label for="concavity_se">Concavity SE:</label>
+        <input type="text" id="concavity_se" name="concavity_se" required><br><br>
+
+        <label for="concave_points_se">Concave Points SE:</label>
+        <input type="text" id="concave_points_se" name="concave_points_se" required><br><br>
+
+        <label for="symmetry_se">Symmetry SE:</label>
+        <input type="text" id="symmetry_se" name="symmetry_se" required><br><br>
+
+        <label for="fractal_dimension_se">Fractal Dimension SE:</label>
+        <input type="text" id="fractal_dimension_se" name="fractal_dimension_se" required><br><br>
+
+        <label for="radius_worst">Radius Worst:</label>
+        <input type="text" id="radius_worst" name="radius_worst" required><br><br>
+
+        <label for="texture_worst">Texture Worst:</label>
+        <input type="text" id="texture_worst" name="texture_worst" required><br><br>
+
+        <label for="perimeter_worst">Perimeter Worst:</label>
+        <input type="text" id="perimeter_worst" name="perimeter_worst" required><br><br>
+
+        <label for="area_worst">Area Worst:</label>
+        <input type="text" id="area_worst" name="area_worst" required><br><br>
+
+        <label for="smoothness_worst">Smoothness Worst:</label>
+        <input type="text" id="smoothness_worst" name="smoothness_worst" required><br><br>
+
+        <label for="compactness_worst">Compactness Worst:</label>
+        <input type="text" id="compactness_worst" name="compactness_worst" required><br><br>
+
+        <label for="concavity_worst">Concavity Worst:</label>
+        <input type="text" id="concavity_worst" name="concavity_worst" required><br><br>
+
+        <label for="concave_points_worst">Concave Points Worst:</label>
+        <input type="text" id="concave_points_worst" name="concave_points_worst" required><br><br>
+
+        <label for="symmetry_worst">Symmetry Worst:</label>
+        <input type="text" id="symmetry_worst" name="symmetry_worst" required><br><br>
+
+        <label for="fractal_dimension_worst">Fractal Dimension Worst:</label>
+        <input type="text" id="fractal_dimension_worst" name="fractal_dimension_worst" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Prediction</title>
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Add a background color and text color */
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the form container */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Label styling */
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        /* Input fields styling */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+
+        /* Submit button styling */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Prediction result styling */
+        h3 {
+            text-align: center;
+            color: #d9534f;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            form {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Breast Cancer Prediction</h1>
+
+    <form action="/predict" method="POST">
+        <!-- Input fields for features -->
+
+        <label for="mean_radius">Mean Radius:</label>
+        <input type="text" id="mean_radius" name="mean_radius" required><br>
+
+        <label for="mean_texture">Mean Texture:</label>
+        <input type="text" id="mean_texture" name="mean_texture" required><br>
+
+        <label for="mean_perimeter">Mean Perimeter:</label>
+        <input type="text" id="mean_perimeter" name="mean_perimeter" required><br>
+
+        <label for="mean_area">Mean Area:</label>
+        <input type="text" id="mean_area" name="mean_area" required><br>
+
+        <label for="mean_smoothness">Mean Smoothness:</label>
+        <input type="text" id="mean_smoothness" name="mean_smoothness" required><br>
+
+        <label for="mean_compactness">Mean Compactness:</label>
+        <input type="text" id="mean_compactness" name="mean_compactness" required><br>
+
+        <label for="mean_concavity">Mean Concavity:</label>
+        <input type="text" id="mean_concavity" name="mean_concavity" required><br>
+
+        <label for="mean_concave_points">Mean Concave Points:</label>
+        <input type="text" id="mean_concave_points" name="mean_concave_points" required><br>
+
+        <label for="mean_symmetry">Mean Symmetry:</label>
+        <input type="text" id="mean_symmetry" name="mean_symmetry" required><br>
+
+        <label for="mean_fractal_dimension">Mean Fractal Dimension:</label>
+        <input type="text" id="mean_fractal_dimension" name="mean_fractal_dimension" required><br>
+
+        <label for="radius_se">Radius SE:</label>
+        <input type="text" id="radius_se" name="radius_se" required><br>
+
+        <label for="texture_se">Texture SE:</label>
+        <input type="text" id="texture_se" name="texture_se" required><br>
+
+        <label for="perimeter_se">Perimeter SE:</label>
+        <input type="text" id="perimeter_se" name="perimeter_se" required><br>
+
+        <label for="area_se">Area SE:</label>
+        <input type="text" id="area_se" name="area_se" required><br>
+
+        <label for="smoothness_se">Smoothness SE:</label>
+        <input type="text" id="smoothness_se" name="smoothness_se" required><br>
+
+        <label for="compactness_se">Compactness SE:</label>
+        <input type="text" id="compactness_se" name="compactness_se" required><br>
+
+        <label for="concavity_se">Concavity SE:</label>
+        <input type="text" id="concavity_se" name="concavity_se" required><br>
+
+        <label for="concave_points_se">Concave Points SE:</label>
+        <input type="text" id="concave_points_se" name="concave_points_se" required><br>
+
+        <label for="symmetry_se">Symmetry SE:</label>
+        <input type="text" id="symmetry_se" name="symmetry_se" required><br>
+
+        <label for="fractal_dimension_se">Fractal Dimension SE:</label>
+        <input type="text" id="fractal_dimension_se" name="fractal_dimension_se" required><br>
+
+        <label for="radius_worst">Radius Worst:</label>
+        <input type="text" id="radius_worst" name="radius_worst" required><br>
+
+        <label for="texture_worst">Texture Worst:</label>
+        <input type="text" id="texture_worst" name="texture_worst" required><br>
+
+        <label for="perimeter_worst">Perimeter Worst:</label>
+        <input type="text" id="perimeter_worst" name="perimeter_worst" required><br>
+
+        <label for="area_worst">Area Worst:</label>
+        <input type="text" id="area_worst" name="area_worst" required><br>
+
+        <label for="smoothness_worst">Smoothness Worst:</label>
+        <input type="text" id="smoothness_worst" name="smoothness_worst" required><br>
+
+        <label for="compactness_worst">Compactness Worst:</label>
+        <input type="text" id="compactness_worst" name="compactness_worst" required><br>
+
+        <label for="concavity_worst">Concavity Worst:</label>
+        <input type="text" id="concavity_worst" name="concavity_worst" required><br>
+
+        <label for="concave_points_worst">Concave Points Worst:</label>
+        <input type="text" id="concave_points_worst" name="concave_points_worst" required><br>
+
+        <label for="symmetry_worst">Symmetry Worst:</label>
+        <input type="text" id="symmetry_worst" name="symmetry_worst" required><br>
+
+        <label for="fractal_dimension_worst">Fractal Dimension Worst:</label>
+        <input type="text" id="fractal_dimension_worst" name="fractal_dimension_worst" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+
+</html>
